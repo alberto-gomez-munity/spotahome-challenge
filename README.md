@@ -2,6 +2,8 @@
 
 El ejercicio consiste en la creación de un pequeño dashboard que permita al usuario la consulta de las viviendas disponibles para su alquiler, según el wireframe proporcionado y la guía de estilos propuesta.
 
+![enter image description here](https://raw.githubusercontent.com/alberto-gomez-munity/spotahome-challenge/master/assets/captura.png)
+
 El reto tanto a nivel de Javascript como de HTML/CSS consiste en realizar un código limpio, entendible y reutilizable no tanto el realizar todos los requisitos de la prueba.
 
 ###	Mi propuesta:
