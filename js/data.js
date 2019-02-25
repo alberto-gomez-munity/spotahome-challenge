@@ -77,34 +77,6 @@ async function getDataProperties(list, paginationStart = 0, paginationEnd = 30) 
   
 }
 
-/**
- * 
- * orderProperties
- * Función encargada de ordenar el listado de las propiedades
- * @param {arry} list Array de propiedades a ordenar 
- * @param {string} orderBy Criterio de ordenación
- * @param {string} orderDir Dirección de la ordenación
- */
-
-function orderProperties(properties, orderDir = 'ASC', orderBy = 'price') {
-  
-  //orden por precio
-  if(orderBy === 'price' && orderDir === 'ASC'){
-    properties.sort((a,b) => (a.pricePerMonth > b.pricePerMonth) ? 1 : ((b.pricePerMonth > a.pricePerMonth) ? -1 : 0)); 
-  }else if(orderBy === 'price' && orderDir === 'DESC'){
-    properties.sort((a,b) => (a.pricePerMonth < b.pricePerMonth) ? 1 : ((b.pricePerMonth < a.pricePerMonth) ? -1 : 0)); 
-  }
-
-  //orden por relevancia
-  if(orderBy === 'relevance' && orderDir === 'ASC'){
-    properties.sort((a,b) => (a.relevance > b.relevance) ? 1 : ((b.relevance > a.relevance) ? -1 : 0)); 
-  }else if(orderBy === 'relevance' && orderDir === 'DESC'){
-    properties.sort((a,b) => (a.relevance < b.relevance) ? 1 : ((b.relevance < a.relevance) ? -1 : 0)); 
-  }
-
-  return properties;
-}
-
 function getProperties(city = '/madrid', type = null, order = 'price:ASC'){
 
   var orderParams = order.split(':');
