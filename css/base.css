@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css?family=Luckiest+Guy|Open+Sans');
+
+* {
+  box-sizing: border-box
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  color: #333;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.font-primary {
+  font-family: 'Luckiest Guy', cursive;
+}
+
+.font-secondary {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration:none;
+  color: #FFD400;
+}
+
+/* spacing */
+.m0 {
+  margin: 0;
+}
+
+.m10 {
+  margin: 10px;
+}
+
+.m20 {
+  margin: 20px;
+}
+
+/**/
+.p0 {
+  padding: 0;
+}
+
+.p5 {
+  padding: 5px;
+}
+
+.p10 {
+  padding: 10px;
+}
+
+.p15 {
+  padding: 15px;
+}
+
+.p20 {
+  padding: 20px;
+}
+
+.pb0 {
+  padding-bottom: 0;
+}
+
+.pb5 {
+  padding-bottom: 5px;
+}
+
+.pb10 {
+  padding-bottom: 10px;
+}
+
+.pb15 {
+  padding-bottom: 15px;
+}
+
+.pb20 {
+  padding-bottom: 20px;
+}
+
+/* sizes */
+.w100 {
+  width: 100%;
+}
+
+.w75 {
+  width: 75%;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.w25 {
+  width: 25%;
+}
+
+/* layout */
+.container {
+  display: flex;
+  flex-direction: row
+}
+
+.hidden {
+  display: none;
+}
+
+/* UI */
+
+.btn {
+  font-family: 'Luckiest Guy', cursive;
+  color: #fff;
+  background: #d2d2d2;
+  border-bottom: solid 5px #a3a3a3;
+  display: inline-block;
+  padding: 10px 15px 7px;
+  text-align: center;
+  font-size: 18px;
+  margin: 5px;
+}
+
+.btn-primary {
+  background: #369121;
+  border-bottom: solid 5px #036C16;
+}
+
+.btn-secondary {
+  background: #F59400;
+  border-bottom: solid 5px #b16000;
+}

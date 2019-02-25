@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Spotaroom | The best way to find your home</title>
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body onload="init()">
+  <div class="wrapper">
+    <header class="container p20 ">
+      <h1 class="">Spotaroom</h1>
+      <ul class="m0 p0">
+        <li class="p10"><a href="">The company</a></li>
+        <li class="p10"><a href="">How we work</a></li>
+        <li class="p10"><a href="">Contact us</a></li>
+      </ul>
+    </header>
+    <main class="container w100">
+      <aside class="sidebar w20 p20">
+        <h3>Filters</h3>
+        <div class="filter_block pb15">
+          <label for="filter_property_type" class="pb15">Property type:</label>
+          <select name="filter_property_type" id="filter_property_type">
+            <option value="" selected>Show all</option>
+            <option value="apartments">Apartments</option>
+            <option value="rooms">Rooms</option>
+            <option value="studios">Studios</option>
+            <option value="residences">Residences</option>
+          </select>
+        </div>
+        <div class="filter_block pb15">
+          <label for="sort_by" class="pb15">Sort by:</label>
+          <select name="sort_by" id="sort_by">
+            <option value="price:ASC" selected>Price Ascending</option>
+            <option value="price:DESC">Price Descending</option>
+            <option value="relevance:ASC">Relevance Ascending</option>
+            <option value="relevance:DESC">Relevance Descending</option>
+          </select>
+        </div>
+
+        <a id="downloadJson" title="Download Json" onclick="downloadJson()">Download Json</a>
+      </aside>
+      <section>
+        <div id="loading" class=""><span></span></div>   
+        <div id="content" class="p20">
+          </div>
+      </section>
+    </main>
+  </div>
+  <script src="js/data.js"></script>
+  <script src="js/functions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

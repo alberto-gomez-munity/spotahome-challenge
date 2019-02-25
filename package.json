@@ -1,0 +1,16 @@
+{
+  "name": "spotahome-challenge",
+  "version": "1.0.0",
+  "description": "Spotahome frontend recruiting exercise",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "lite-server"
+  },
+  "author": "Alberto Gómez-Chacón Villalba",
+  "license": "",
+  "dependencies": {},
+  "devDependencies": {
+    "lite-server": "^2.4.0"
+  }
+}
