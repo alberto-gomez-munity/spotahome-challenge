@@ -1,6 +1,36 @@
 'use strict'
 
-function htmlCards(properties) {
+
+
+/**
+ * 
+ * orderProperties
+ * Función encargada de ordenar el listado de las propiedades
+ * @param {arry} list Array de propiedades a ordenar 
+ * @param {string} orderBy Criterio de ordenación
+ * @param {string} orderDir Dirección de la ordenación
+ */
+
+export function orderProperties(properties, orderDir = 'ASC', orderBy = 'price') {
+  
+  //orden por precio
+  if(orderBy === 'price' && orderDir === 'ASC'){
+    properties.sort((a,b) => (a.pricePerMonth > b.pricePerMonth) ? 1 : ((b.pricePerMonth > a.pricePerMonth) ? -1 : 0)); 
+  }else if(orderBy === 'price' && orderDir === 'DESC'){
+    properties.sort((a,b) => (a.pricePerMonth < b.pricePerMonth) ? 1 : ((b.pricePerMonth < a.pricePerMonth) ? -1 : 0)); 
+  }
+
+  //orden por relevancia
+  if(orderBy === 'relevance' && orderDir === 'ASC'){
+    properties.sort((a,b) => (a.relevance > b.relevance) ? 1 : ((b.relevance > a.relevance) ? -1 : 0)); 
+  }else if(orderBy === 'relevance' && orderDir === 'DESC'){
+    properties.sort((a,b) => (a.relevance < b.relevance) ? 1 : ((b.relevance < a.relevance) ? -1 : 0)); 
+  }
+
+  return properties;
+}
+
+export function htmlCards(properties) {
   var cards = "";  
   properties.forEach(property => {
 
@@ -30,7 +60,7 @@ function htmlCards(properties) {
 }
 
 
-function saveLocal(properties) {
+export function saveLocal(properties) {
   
   if (window.localStorage) {
     localStorage.setItem('properties', JSON.stringify(properties))
@@ -39,7 +69,7 @@ function saveLocal(properties) {
   }
 }
 
-function getLocal() {
+export function getLocal() {
   
   if (window.localStorage) {
     var propertiesStr = localStorage.getItem('properties');
@@ -49,7 +79,7 @@ function getLocal() {
   }
 }
 
-function downloadJson() {
+export function downloadJson() {
 
   var data = getLocal();
   var json = JSON.stringify(data);
@@ -60,7 +90,7 @@ function downloadJson() {
   downloadJsonElem.setAttribute("download", "properties.json");
 }
 
-function loader(action = '') {
+export function loader(action = '') {
   
   var loader = document.getElementById('loading');
 
@@ -71,7 +101,7 @@ function loader(action = '') {
   }
 }
 
-function getCity(){
+export function getCity(){
 
   //ciudades permitidas
   var cities = ['/madrid', '/barcelona', '/london'];

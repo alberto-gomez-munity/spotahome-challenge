@@ -1,12 +1,12 @@
 'use strict'
 
-require('./data')
-require('./functions')
+import getProperties from './data.js';
+import * as lib from './functions.js';
 
 function init(){
   console.log('Aplicación cargada');
 
-  var city = getCity();
+  var city = lib.getCity();
 
   //obtenemos las propiedades por primera vez con los parámetros por defecto
   getProperties(city).then(properties => {
@@ -15,28 +15,24 @@ function init(){
     if(properties.length > 0){
 
       //almacenamos las propiedades en local para su posterior uso
-      saveLocal(properties);
+      lib.saveLocal(properties);
 
       //pintamos las fichas de cada propiedad
-      var html = htmlCards(properties);
+      var html = lib.htmlCards(properties);
       document.getElementById('content').innerHTML = html;
-      loader('hidden')
+      lib.loader('hidden')
     }
   })
-
 }
 
 
-var selectType = document.getElementById('filter_property_type');
-var selectOrder = document.getElementById('sort_by');
 
-selectType.addEventListener('change', (element) => {
+function filter(type){
   
-  loader()
+  lib.loader()
 
-  var type = element.target.value;
-  var order = selectOrder.value;
-  var city = getCity();
+  var order = document.getElementById('sort_by').value;
+  var city = lib.getCity();
 
   //obtenemos las propiedades por filtro
   getProperties(city, type, order).then(properties => {
@@ -44,38 +40,56 @@ selectType.addEventListener('change', (element) => {
     if(properties.length > 0){
 
       //almacenamos las propiedades en local para su posterior uso
-      saveLocal(properties);
+      lib.saveLocal(properties);
 
       //pintamos las fichas de cada propiedad
-      var html = htmlCards(properties);
+      var html = lib.htmlCards(properties);
       document.getElementById('content').innerHTML = html;
-      loader('hidden')
+      lib.loader('hidden')
     }
   })
-})
+}
 
-selectOrder.addEventListener('change', (element) => {
+function sort(order){
 
-  loader()
+  lib.loader()
 
-  var order = element.target.value;
   var orderParams = order.split(':');
   var orderDir = orderParams[1];
   var orderBy = orderParams[0];
 
   //obtenemos las propiedades del localStorage
-  var properties = getLocal();
+  var properties = lib.getLocal();
   //ordenamos las propiedades según el nuevo criterio
-  orderProperties(properties, orderDir, orderBy)
+  lib.orderProperties(properties, orderDir, orderBy)
   
   //almacenamos las propiedades en local para su posterior uso
-  saveLocal(properties);
+  lib.saveLocal(properties);
 
   //pintamos las fichas de cada propiedad
-  var html = htmlCards(properties);
+  var html = lib.htmlCards(properties);
   document.getElementById('content').innerHTML = html;
-  loader('hidden')
+  lib.loader('hidden')
 
-})
+}
 
+/**
+ * Iniciamos la aplicación
+*/
+init();
 
+var selectType = document.getElementById('filter_property_type');
+var selectOrder = document.getElementById('sort_by');
+var downloadJson = document.getElementById('downloadJson');
+
+selectType.addEventListener('change', (element) => {
+  filter(element.target.value)
+});
+
+selectOrder.addEventListener('change', (element) => {
+  sort(element.target.value)
+});
+
+downloadJson.addEventListener('click', () => {
+  lib.downloadJson()
+});
