@@ -28,7 +28,6 @@ function orderProperties(properties, orderDir = 'ASC', orderBy = 'price') {
   return properties;
 }
 
-
 function htmlCards(properties) {
   var cards = "";  
   properties.forEach(property => {

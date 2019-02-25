@@ -24,15 +24,12 @@ function init(){
 }
 
 
-var selectType = document.getElementById('filter_property_type');
-var selectOrder = document.getElementById('sort_by');
 
-selectType.addEventListener('change', (element) => {
+function filter(type){
   
   loader()
 
-  var type = element.target.value;
-  var order = selectOrder.value;
+  var order = document.getElementById('sort_by').value;
   var city = getCity();
 
   //obtenemos las propiedades por filtro
@@ -49,13 +46,12 @@ selectType.addEventListener('change', (element) => {
       loader('hidden')
     }
   })
-})
+}
 
-selectOrder.addEventListener('change', (element) => {
+function sort(order){
 
   loader()
 
-  var order = element.target.value;
   var orderParams = order.split(':');
   var orderDir = orderParams[1];
   var orderBy = orderParams[0];
@@ -73,6 +69,6 @@ selectOrder.addEventListener('change', (element) => {
   document.getElementById('content').innerHTML = html;
   loader('hidden')
 
-})
+}
 
 

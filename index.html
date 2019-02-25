@@ -29,7 +29,7 @@
         <h3>Filters</h3>
         <div class="filter_block pb15">
           <label for="filter_property_type" class="pb15">Property type:</label>
-          <select name="filter_property_type" id="filter_property_type">
+          <select name="filter_property_type" id="filter_property_type" onchange="filter(this.value)">
             <option value="" selected>Show all</option>
             <option value="apartments">Apartments</option>
             <option value="rooms">Rooms</option>
@@ -39,7 +39,7 @@
         </div>
         <div class="filter_block pb15">
           <label for="sort_by" class="pb15">Sort by:</label>
-          <select name="sort_by" id="sort_by">
+          <select name="sort_by" id="sort_by" onchange="sort(this.value)">
             <option value="price:ASC" selected>Price Ascending</option>
             <option value="price:DESC">Price Descending</option>
             <option value="relevance:ASC">Relevance Ascending</option>
