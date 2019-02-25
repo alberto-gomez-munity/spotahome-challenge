@@ -7,7 +7,6 @@ function init(){
 
   //obtenemos las propiedades por primera vez con los parámetros por defecto
   getProperties(city).then(properties => {
-    console.log(properties);
 
     if(properties.length > 0){
 
