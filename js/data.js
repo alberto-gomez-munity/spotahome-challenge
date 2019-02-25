@@ -76,6 +76,14 @@ async function getDataProperties(list, paginationStart = 0, paginationEnd = 30) 
 }
 
 
+/**
+ * 
+ * getProperties
+ * función responsable de obtener las propiedades según los criterios del usuario
+ * @param {string} city parámetro de ciudad a consultar
+ * @param {string} type filtro por tipo de propiedad
+ * @param {string} order criterios de ordenación 
+ */
 function getProperties(city = '/madrid', type = null, order = 'price:ASC'){
 
   var orderParams = order.split(':');
