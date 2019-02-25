@@ -11,14 +11,14 @@ async function getListProperties(type = null, city = '/madrid'){
   
   //Validamos el tipo de propiedad a retornar
   var validTypes = ['apartments', 'rooms', 'studios', 'residences'];
-  var typeParam = (validTypes.includes(type) ? '?type[]='+type : '');
+  var typeParam = '?type[]=' + (validTypes.includes(type) ? type : '');
   
   //construimos la url de llamada al API
   const proxy = 'http://localhost:8080/proxy?url=';
-  const url = `${proxy}https://staging.spotahome.com/api/public/listings/search/markers${city}${typeParam}`;
+  const url = encodeURIComponent(`https://staging.spotahome.com/api/public/listings/search/markers${city}${typeParam}`);
   
   //realizamos la llamada a la API
-  return await fetch(url)
+  return await fetch(proxy + url)
   .then(response => response.json())
   .then(resContent => {
     if (resContent.ok) {
@@ -56,10 +56,10 @@ async function getDataProperties(list, paginationStart = 0, paginationEnd = 30) 
 
   //construimos la url y lanzamos la petición
   const proxy = 'http://localhost:8080/proxy?url=';
-  let url = `${proxy}'https://staging.spotahome.com/api/public/listings/search/homecards_ids${idsQuery}'`;
+  let url = encodeURIComponent(`https://staging.spotahome.com/api/public/listings/search/homecards_ids${idsQuery}`);
 
   //realizamos la llamada a la API
-  return await fetch(url)
+  return await fetch(proxy + url)
     .then(response => response.json())
     .then(resContent => {
       if (resContent.ok) {
