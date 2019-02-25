@@ -1,5 +1,8 @@
 'use strict'
 
+require('./data')
+require('./functions')
+
 function init(){
   console.log('Aplicación cargada');
 
