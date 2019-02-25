@@ -29,7 +29,7 @@ He optado por no utilizar ningún framework tipo Bootstrap o similar sino genera
 Todas las ramas cuentan con un lite server en NodeJS para no tener que ejecutar la aplicaicón desde el FileSystem
 
 Para ejecutar todas las versiones basta con instalar los paquetes de Node y ejecutar el comando
-     npm start
+*npm start*
 
 **PD:** El PDF con la descripción de la prueba contiene una pequeña trampa que no se si está puesta adrede o por error. Los ENDPOINT de la API que aparecen como texto en el documento están referidos a *https://www.spotahome.com/api/...* sin embargo si clicas sobre dicho enlace te dirige a la url *https://staging.spotahome.com/api/...* por lo que si no te das cuenta de la diferencia en la url puedes tirarte horas haciendo llamadas a dos APIs diferentes y que por tanto te dan resultados diferentes.
 Nada un detalle ;)
